@@ -1,0 +1,39 @@
+{
+	"name": "Python 3",
+	// Update the 'dockerComposeFile' list if you have more compose files or use different names.
+	"dockerComposeFile": "docker-compose.yml",
+	
+	// The 'service' property is the name of the service for the container that VS Code should
+	// use. Update this value and .devcontainer/docker-compose.yml to the real service name.
+	"service": "app",
+
+	// The 'workspaceFolder' property is the path VS Code should open by default when
+	// connected. Corresponds to a volume mount in .devcontainer/docker-compose.yml
+	"workspaceFolder": "/workspace",
+
+	// Set *default* container specific settings.json values on container create.
+	"settings": { 
+	},
+
+	// Add the IDs of extensions you want installed when the container is created.
+	"extensions": [
+        /* Git */
+		"mhutchie.git-graph",
+		"donjayamanne.githistory",
+        /* Markdown */
+		"yzhang.markdown-all-in-one",
+        /* Microsoft */
+		"ms-python.python",
+		"ms-python.vscode-pylance",
+		"SonarSource.sonarlint-vscode"
+	],
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [],
+
+	// Use 'postCreateCommand' to run commands after the container is created.
+	//"postCreateCommand": "sudo chown -R vscode:vscode /workspace",
+
+	// Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+	"remoteUser": "vscode"
+}
