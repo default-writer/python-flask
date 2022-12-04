@@ -30,7 +30,7 @@ RUN apt-get update \
     rm -rf /usr/share/man/ && \
     rm -rf /var/lib/apt/lists/* /tmp/common-setup.sh
 
-USER vscode
+USER ${USER_NAME}
 WORKDIR /workspace
 
 COPY --chown=${USER_NAME}:${USER_GROUP} . .
