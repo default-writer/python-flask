@@ -2,6 +2,14 @@
 
 Python template project for VSCode (batteries included)
 
+## environment variables
+
+run script `./bin/env.sh` as user
+
+```bash
+. ./bin/env.sh
+```
+
 ## code 
 
 code reformatting
