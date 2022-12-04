@@ -24,8 +24,7 @@
 		"yzhang.markdown-all-in-one",
         /* Microsoft */
 		"ms-python.python",
-		"ms-python.vscode-pylance",
-		"SonarSource.sonarlint-vscode"
+		"ms-python.vscode-pylance"
 	]
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
