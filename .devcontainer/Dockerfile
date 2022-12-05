@@ -21,6 +21,7 @@ RUN apt-get update && \
     curl -sSL  ${COMMON_SCRIPT_SOURCE} -o /tmp/common-setup.sh && \
     ([ "${COMMON_SCRIPT_SHA}" = "dev-mode" ] || (echo "${COMMON_SCRIPT_SHA} /tmp/common-setup.sh" | sha256sum -c -)) && \
     /bin/bash /tmp/common-setup.sh "${INSTALL_ZSH}" "${USER_NAME}" "${USER_ID}" "${USER_GID}" "${UPGRADE_PACKAGES}" && \
+    apt-get -y upgrade && \
     # Clean up
     apt-get autoclean -y && \
     apt-get autoremove -y && \
