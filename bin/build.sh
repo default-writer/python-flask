@@ -44,7 +44,6 @@ esac
 case "${install}" in
 
     "--all") # builds and runs all targets
-        echo TODO: build will goes here..
         ;;
 
     *)
@@ -62,12 +61,5 @@ EOF
         ;;
 
 esac
-
-[ ! -d "${pwd}/cmake" ] && mkdir "${pwd}/cmake"
-
-if [ "${clean}" == "--clean" ]; then
-    rm -rf "${pwd}/cmake"
-    mkdir "${pwd}/cmake"
-fi
 
 cd "${pwd}"
