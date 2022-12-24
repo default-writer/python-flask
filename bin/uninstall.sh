@@ -13,15 +13,19 @@ pwd=$(pwd)
 install="$1"
 
 case "${install}" in
-	"--venv") # installs python3 venv virtual environment into .venv folder
-		rm -rf .venv
-		python3 -m venv .venv
-		;;
 
-	"--pyenv") # installs pyenv virtual environment for 3.11.1 into .venv folder
-		pyenv install -f 3.11.1
-		pyenv virtualenv -f 3.11.1 .venv
-		;;
+    "--git") # unsets git config global environment variables
+        git config --global --unset safe.directory
+        git config --global --unset pull.rebase
+        ;;
+
+    "--hooks") # removes prepare-commit-msg hook from .git
+        rm -rf .git/hooks/prepare-commit-msg
+        ;;
+
+    "--pyenv") # removes .pyenv folder
+    	rm -rf $HOME/.pyenv
+        ;;
 
     *)
         commands=$(cat $0 | sed -e 's/^[ \t]*//;' | sed -e '/^[ \t]*$/d' | sed -n -e 's/^"\(.*\)".*#/    \1:/p' | sed -n -e 's/: /:\n        /p')
