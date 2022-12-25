@@ -21,6 +21,7 @@ case "${install}" in
 	"--pyenv") # installs pyenv virtual environment for 3.11.1 into .venv folder
 		pyenv install -f 3.11.1
 		pyenv virtualenv -f 3.11.1 .venv
+		pyenv activate .venv
 		;;
 
     *)
