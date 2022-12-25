@@ -1,4 +1,4 @@
-FROM ubuntu:22.04
+FROM ubuntu:22.04 as base
 
 ARG USER_NAME=vscode
 ARG USER_GROUP=vscode
@@ -34,3 +34,8 @@ USER ${USER_NAME}
 WORKDIR /workspace
 
 COPY --chown=${USER_NAME}:${USER_GROUP} . .
+
+FROM base as init
+WORKDIR /workspace
+
+RUN /workspace/bin/container.sh
