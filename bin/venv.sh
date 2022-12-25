@@ -21,8 +21,8 @@ case "${install}" in
             [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
             nvm install node
             nvm use node
+            npm install -g npm@9.2.0
         fi
-        npm install -g npm@9.2.0
         ;;
 
     "--pyenv") # installs pyenv virtual environment for 3.11.1 into .venv folder
