@@ -24,7 +24,12 @@ echo "Pyenv version $(pyenv --version)"
 sudo "${pwd}/bin/setup.sh" --llvm
 sudo "${pwd}/bin/setup.sh" --cmake
 sudo "${pwd}/bin/setup.sh" --pyenv
+
 "${pwd}/bin/venv.sh" --pyenv
 "${pwd}/bin/venv.sh" --venv
+
+. "${pwd}/.venv/bin/activate"
+
+"${pwd}/runme.sh"
 
 cd "${pwd}"
