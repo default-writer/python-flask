@@ -27,6 +27,4 @@ sudo "${pwd}/bin/setup.sh" --pyenv
 "${pwd}/bin/venv.sh" --pyenv
 "${pwd}/bin/venv.sh" --venv
 
-"${pwd}/bin/runme.sh"
-
 cd "${pwd}"
