@@ -33,6 +33,4 @@ echo "Pyenv version $(pyenv --version)"
 
 . "${pwd}/.venv/bin/activate"
 
-"${pwd}/runme.sh"
-
 cd "${pwd}"
