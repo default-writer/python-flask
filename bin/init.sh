@@ -13,17 +13,16 @@ pwd=$(pwd)
 "${pwd}/bin/git.sh" --git
 "${pwd}/bin/git.sh" --hooks
 
-if [ "$(which nvm)" == "" ]; then
+# if [ "$(which nvm)" == "" ]; then
     "${pwd}/bin/install.sh" --nvm
     "${pwd}/bin/env.sh" --nvm
-    . "${pwd}/bin/nvm.sh"
     "${pwd}/bin/venv.sh" --nvm
-fi
+    exit
+# fi
 
 if [ "$(which pyenv)" == "" ]; then
     "${pwd}/bin/install.sh" --pyenv
     "${pwd}/bin/env.sh" --pyenv
-    . "${pwd}/bin/pyenv.sh"
     "${pwd}/bin/venv.sh" --pyenv
 fi
 

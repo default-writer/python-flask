@@ -14,20 +14,24 @@ install="$1"
 
 case "${install}" in
     "--nvm") # installs nvm
+        "${pwd}/bin/nvm.sh"
+        . "${pwd}/bin/nvm.sh"
         nvm install 19.3.0
         nvm use 19.3.0
         npm install -g npm@9.2.0
         ;;
 
-    "--venv") # installs python3 venv virtual environment into .venv folder
-        rm -rf .venv
-        python3 -m venv .venv
-        ;;
-
     "--pyenv") # installs pyenv virtual environment for 3.11.1 into .venv folder
+        "${pwd}/bin/pyenv.sh"
+        . "${pwd}/bin/pyenv.sh"
         pyenv install -f 3.11.1
         pyenv virtualenv -f 3.11.1 .venv
         pyenv activate .venv
+        ;;
+
+    "--venv") # installs python3 venv virtual environment into .venv folder
+        rm -rf .venv
+        python3 -m venv .venv
         ;;
 
     *)
