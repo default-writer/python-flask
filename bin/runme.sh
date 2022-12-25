@@ -11,5 +11,8 @@ fi
 pwd=$(pwd)
 
 "${pwd}/bin/clean.sh"
+"${pwd}/bin/venv.sh" --venv
+
+python3 -m pip install -r requirements.txt
 
 cd "${pwd}"
