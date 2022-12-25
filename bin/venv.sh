@@ -4,8 +4,8 @@ set -e
 uid=$(id -u)
 
 if [ "${uid}" -eq 0 ]; then
-	echo "Please run as user"
-	exit
+    echo "Please run as user"
+    exit
 fi
 
 pwd=$(pwd)
@@ -13,16 +13,22 @@ pwd=$(pwd)
 install="$1"
 
 case "${install}" in
-	"--venv") # installs python3 venv virtual environment into .venv folder
-		rm -rf .venv
-		python3 -m venv .venv
-		;;
+    "--nvm") # installs nvm
+        nvm install 19.3.0
+        nvm use 19.3.0
+        npm install -g npm@9.2.0
+        ;;
 
-	"--pyenv") # installs pyenv virtual environment for 3.11.1 into .venv folder
-		pyenv install -f 3.11.1
-		pyenv virtualenv -f 3.11.1 .venv
-		pyenv activate .venv
-		;;
+    "--venv") # installs python3 venv virtual environment into .venv folder
+        rm -rf .venv
+        python3 -m venv .venv
+        ;;
+
+    "--pyenv") # installs pyenv virtual environment for 3.11.1 into .venv folder
+        pyenv install -f 3.11.1
+        pyenv virtualenv -f 3.11.1 .venv
+        pyenv activate .venv
+        ;;
 
     *)
         commands=$(cat $0 | sed -e 's/^[ \t]*//;' | sed -e '/^[ \t]*$/d' | sed -n -e 's/^"\(.*\)".*#/    \1:/p' | sed -n -e 's/: /:\n        /p')
