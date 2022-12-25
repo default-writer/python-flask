@@ -10,6 +10,6 @@ fi
 
 pwd=$(pwd)
 
-"${pwd}/bin/clean.sh" && "${pwd}/bin/build.sh" --all
+"${pwd}/bin/clean.sh"
 
 cd "${pwd}"
