@@ -10,12 +10,16 @@ fi
 
 pwd=$(pwd)
 
-"${pwd}/bin/install.sh" --git
-"${pwd}/bin/install.sh" --submodule
-"${pwd}/bin/install.sh" --hooks
 "${pwd}/bin/env.sh" --nvm
-"${pwd}/bin/nvm.sh"
+"${pwd}/bin/env.sh" --pyenv
 
+"${pwd}/bin/git.sh" --git
+"${pwd}/bin/git.sh" --hooks
+
+"${pwd}/bin/install.sh" --nvm
+"${pwd}/bin/install.sh" --pyenv
+
+"${pwd}/bin/nvm.sh"
 . "${pwd}/bin/nvm.sh"
 
 nvm --version

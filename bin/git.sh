@@ -14,13 +14,14 @@ install="$1"
 
 case "${install}" in
 
-    "--nvm") # installs nvm variables
-        curl --silent -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | bash
+    "--git") # installs git variables
+        git config --global --add safe.directory "${pwd}"
+        git config --global pull.rebase false
         ;;
 
-    "--pyenv") # downloads and installs pyenv
-        rm -rf "${HOME}/.pyenv"
-        curl --silent https://pyenv.run | bash
+    "--hooks") # installs git hooks
+        cp "${pwd}/.hooks/prepare-commit-msg" "${pwd}/.git/hooks/prepare-commit-msg"
+        chmod u+x "${pwd}/.git/hooks/prepare-commit-msg"
         ;;
 
     *)
