@@ -13,9 +13,8 @@ pwd=$(pwd)
 "${pwd}/bin/git.sh" --git
 "${pwd}/bin/git.sh" --hooks
 
-[ $(which nvm) == "" ] && "${pwd}/bin/env.sh" --nvm && "${pwd}/bin/install.sh" --nvm
-[ $(which pyenv) == "" ] && "${pwd}/bin/env.sh" --pyenv && "${pwd}/bin/install.sh" --pyenv
-[ $(which nvm) == "" ] && nvm install 19.3.0 && nvm use 19.3.0 && npm install -g npm@9.2.0
+[ "$(which nvm)" == "" ] && "${pwd}/bin/env.sh" --nvm && "${pwd}/bin/install.sh" --nvm && nvm install 19.3.0 && nvm use 19.3.0 && npm install -g npm@9.2.0
+[ "$(which pyenv)" == "" ] && "${pwd}/bin/env.sh" --pyenv && "${pwd}/bin/install.sh" --pyenv
 
 echo "Node version $(node --version)"
 echo "NPM version $(npm --version)"
