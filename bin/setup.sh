@@ -46,7 +46,7 @@ case "${install}" in
 
     "--pyenv") # installs pyenv
         apt update -y
-        DEBIAN_FRONTEND=noninteractive apt install -y build-essential zlib1g-dev libffi-dev libssl-dev libbz2-dev libreadline-dev libsqlite3-dev liblzma-dev python3-tk tk-dev
+        DEBIAN_FRONTEND=noninteractive apt install -y build-essential
         apt install -y --only-upgrade apport apport-gtk python3-apport python3-problem-report
         apt upgrade -y
         ;;
