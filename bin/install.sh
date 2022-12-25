@@ -14,7 +14,11 @@ install="$1"
 
 case "${install}" in
 
-    "--env") # installs env variables ('. ./install.sh env')
+    "--nvm") # installs nvm variables
+        export NVM_DIR="$HOME/.nvm"
+        ;;
+
+    "--env") # installs env variables
         user=$(id -un)
         id=$(id -u)
         group=$(id -gn)
