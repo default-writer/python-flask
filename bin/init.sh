@@ -17,7 +17,6 @@ if [ "$(which nvm)" == "" ]; then
     "${pwd}/bin/install.sh" --nvm
     "${pwd}/bin/env.sh" --nvm
     "${pwd}/bin/venv.sh" --nvm
-    exit
 fi
 
 if [ "$(which pyenv)" == "" ]; then
