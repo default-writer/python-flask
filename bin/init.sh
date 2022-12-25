@@ -19,9 +19,6 @@ pwd=$(pwd)
 "${pwd}/bin/install.sh" --nvm
 "${pwd}/bin/install.sh" --pyenv
 
-"${pwd}/bin/nvm.sh"
-. "${pwd}/bin/nvm.sh"
-
 nvm --version
 nvm install 19.3.0
 nvm use 19.3.0
