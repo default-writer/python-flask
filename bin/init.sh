@@ -21,10 +21,10 @@ echo "Node version $(node --version)"
 echo "NPM version $(npm --version)"
 echo "Pyenv version $(pyenv --version)"
 
-# sudo "${pwd}/bin/setup.sh" --llvm
-# sudo "${pwd}/bin/setup.sh" --cmake
-# sudo "${pwd}/bin/setup.sh" --pyenv
-# "${pwd}/bin/venv.sh" --pyenv
+sudo "${pwd}/bin/setup.sh" --llvm
+sudo "${pwd}/bin/setup.sh" --cmake
+sudo "${pwd}/bin/setup.sh" --pyenv
+"${pwd}/bin/venv.sh" --pyenv
 
 "${pwd}/bin/runme.sh"
 
