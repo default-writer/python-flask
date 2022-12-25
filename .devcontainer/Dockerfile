@@ -12,6 +12,10 @@ ARG COMMON_SCRIPT_SOURCE="https://raw.githubusercontent.com/microsoft/vscode-dev
 ARG COMMON_SCRIPT_SHA="dev-mode"
 
 
+RUN apt update -y && \
+    export DEBIAN_FRONTEND=noninteractive && \
+    ap
+
 ENV TZ=Etc/UTC
 RUN DEBIAN_FRONTEND=noninteractive TZ=Etc/UTC apt -y install tzdata
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
@@ -19,16 +23,14 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 RUN groupadd -r ${USER_GROUP} && useradd -ms /bin/bash -g ${USER_GROUP} -G sudo -u ${USER_ID} ${USER_NAME}
 
 # Install needed packages and setup non-root user. Use a separate RUN statement to add your own dependencies.
-RUN apt-get update && \
-    export DEBIAN_FRONTEND=noninteractive && \
-    apt-get -y install --no-install-recommends curl build-essential ca-certificates git python3 python3-pip python3-venv g++ gcc gdb lldb lcov cmake clangd ninja-build 2>&1 && \
+RUN apt -y install --no-install-recommends curl build-essential ca-certificates git python3 python3-pip python3-venv g++ gcc gdb lldb lcov cmake clangd ninja-build 2>&1 && \
     curl -sSL  ${COMMON_SCRIPT_SOURCE} -o /tmp/common-setup.sh && \
     ([ "${COMMON_SCRIPT_SHA}" = "dev-mode" ] || (echo "${COMMON_SCRIPT_SHA} /tmp/common-setup.sh" | sha256sum -c -)) && \
     /bin/bash /tmp/common-setup.sh "${INSTALL_ZSH}" "${USER_NAME}" "${USER_ID}" "${USER_GID}" "${UPGRADE_PACKAGES}" && \
-    apt-get -y upgrade && \
+    apt -y upgrade && \
     # Clean up
-    apt-get autoclean -y && \
-    apt-get autoremove -y && \
+    apt autoclean -y && \
+    apt autoremove -y && \
     rm -rf /var/lib/{cache,log}/ && \
     rm -rf /tmp/* /var/tmp/* && \
     rm -rf /usr/share/doc/ && \

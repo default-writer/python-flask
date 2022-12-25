@@ -42,9 +42,9 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 General devlopment
 
 ```dockerfile
-RUN apt-get update \
+RUN apt update -y \
      && export DEBIAN_FRONTEND=noninteractive \
-     && apt-get -y install --no-install-recommends tar curl zip unzip
+     && apt -y install --no-install-recommends tar curl zip unzip
 ```
 
 Time zone
@@ -59,10 +59,10 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 ```dockerfile
 RUN wget https://packages.microsoft.com/config/ubuntu/22.04/packages-microsoft-prod.deb -O /tmp/packages-microsoft-prod.deb \
     && dpkg -i /tmp/packages-microsoft-prod.deb \
-    && apt-get update \
-    && apt-get install -y apt-transport-https \
-    && apt-get install -y dotnet-sdk-5.0 \
-    && apt-get install -y dotnet-runtime-5.0
+    && apt update -y \
+    && apt install -y apt-transport-https \
+    && apt install -y dotnet-sdk-5.0 \
+    && apt install -y dotnet-runtime-5.0
 ```
 
 Node.js
@@ -91,8 +91,8 @@ Bazel
 RUN apt install curl gnupg \
     && curl https://bazel.build/bazel-release.pub.gpg | apt-key add -; \
     echo "deb [arch=amd64] https://storage.googleapis.com/bazel-apt stable jdk1.8" | tee /etc/apt/sources.list.d/bazel.list \
-    && apt-get update \
-    && apt-get -y install bazel \
+    && apt update -y \
+    && apt -y install bazel \
     && wget -q "https://github.com/bazelbuild/buildtools/releases/download/3.4.0/buildifier" -P /usr/local/bin &&  chmod +x /usr/local/bin/buildifier \
     && wget -q "https://github.com/bazelbuild/buildtools/releases/download/3.4.0/buildozer" -P /usr/local/bin && chmod +x /usr/local/bin/buildozer \
     && wget -q "https://github.com/bazelbuild/buildtools/releases/download/3.4.0/unused_deps" -P /usr/local/bin && chmod +x /usr/local/bin/unused_deps
@@ -101,7 +101,7 @@ RUN apt install curl gnupg \
 LLDB
 
 ```dockerfile
-RUN apt-get install gnupg lldb g++ valgrind -y 
+RUN apt install gnupg lldb g++ valgrind -y 
 ```
 
 Unix ODBC driver for MSSQL Server 2017
@@ -109,14 +109,14 @@ Unix ODBC driver for MSSQL Server 2017
 ```dockerfile
 RUN curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -; \
     curl https://packages.microsoft.com/config/ubuntu/19.10/prod.list > /etc/apt/sources.list.d/mssql-release.list; \
-    apt-get update \
-    && ACCEPT_EULA=Y apt-get -y install msodbcsql17 mssql-tools unixodbc-dev
+    apt update -y \
+    && ACCEPT_EULA=Y apt -y install msodbcsql17 mssql-tools unixodbc-dev
 ```
 
 Docker 19.03.8
 
 ```dockerfile
-RUN apt-get -y install docker.io
+RUN apt -y install docker.io
 ```
 
 Docker-compose 1.26.2
@@ -129,9 +129,9 @@ RUN curl -L "https://github.com/docker/compose/releases/download/1.26.2/docker-c
 Python 3
 
 ```dockerfile
-RUN apt-get update \
+RUN apt update -y \
     && export DEBIAN_FRONTEND=noninteractive \
-    && apt-get install -y python3 python3-dev python3-pip python3-venv python3-behave pipenv
+    && apt install -y python3 python3-dev python3-pip python3-venv python3-behave pipenv
 
 RUN ln -s /usr/local/bin/python3 /usr/bin/python & \
     ln -s /usr/local/bin/pip3 /usr/bin/pip
