@@ -1,11 +1,44 @@
 {
     "recommendations": [
         "codezombiech.gitignore",
-        "mhutchie.git-graph",
         "donjayamanne.githistory",
         "yzhang.markdown-all-in-one",
         "ms-python.vscode-pylance",
         "ms-python.python",
-        "sonarsource.sonarlint-vscode"
+        "sonarsource.sonarlint-vscode",
+        "9crusher.tabinator",
+        /* Git */
+		"mhutchie.git-graph",
+		"donjayamanne.githistory",
+        /* Markdown */
+		"yzhang.markdown-all-in-one",
+        /* Microsoft */
+		"ms-python.python",
+		"ms-python.vscode-pylance",
+		"ms-vscode.live-server",
+		"9crusher.tabinator",
+		"vadimcn.vscode-lldb",
+		"mhutchie.git-graph",
+		"donjayamanne.githistory",
+		"donjayamanne.python-environment-manager",
+		"SonarSource.sonarlint-vscode",
+		"codezombiech.gitignore",
+		"gabrielgrinberg.auto-run-command",
+		"Sycl.markdown-command-runner",
+		"andifin.testonsave",
+		"tenninebt.vscode-koverage",
+		"ryanluker.vscode-coverage-gutters",
+		"tomoki1207.pdf",
+		"yzane.markdown-pdf",
+		"NateAGeek.memory-viewer",
+		"bpruitt-goddard.mermaid-markdown-syntax-highlighting",
+		"bierner.markdown-mermaid",
+		"go2sh.cmake-integration-vscode",
+		"llvm-vs-code-extensions.vscode-clangd",
+		"VisualStudioExptTeam.vscodeintellicode",
+		"Gruntfuggly.todo-tree",
+		"arcanis.vscode-zipfs",
+		"GitHub.codespaces",
+		"BeardedBear.beardedicons"
     ]
 }
