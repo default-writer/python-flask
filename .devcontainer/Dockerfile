@@ -16,7 +16,7 @@ ENV TZ=Etc/UTC
 RUN apt update -y && \
     export DEBIAN_FRONTEND=noninteractive && \
     TZ=Etc/UTC apt -y install tzdata && \
-    ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone &&
+    ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone && \
     groupadd -f ${USER_GROUP} && useradd -ms /bin/bash -g ${USER_GROUP} -G sudo -u ${USER_ID} ${USER_NAME} && \
     DEBIAN_FRONTEND=noninteractive apt -y install --no-install-recommends curl build-essential ca-certificates git python3 python3-pip python3-venv g++ gcc gdb lldb lcov cmake clangd ninja-build  zlib1g-dev libffi-dev libssl-dev libbz2-dev libreadline-dev libsqlite3-dev liblzma-dev python3-tk tk-dev 2>&1 && \
     curl -sSL  ${COMMON_SCRIPT_SOURCE} -o /tmp/common-setup.sh && \
