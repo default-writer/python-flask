@@ -1,4 +1,4 @@
-FROM ubuntu:22.04 as base
+FROM bitnami/minideb:latest as base
 
 ARG GROUP=vscode
 
@@ -21,7 +21,7 @@ RUN apt update -y && \
     ## ca-certificates required by /tmp/common-setup.sh script
     apt -y install --no-install-recommends ca-certificates 2>&1 && \
     ## curl required by this script
-    apt -y install --no-install-recommends ca-certificates 2>&1 && \
+    apt -y install --no-install-recommends curl 2>&1 && \
     # apt -y install --no-install-recommends curl 2>&1 && \
     curl -sSL ${COMMON_SCRIPT_SOURCE} -o /tmp/common-setup.sh && \
     # ([ "${COMMON_SCRIPT_SHA}" = "dev-mode" ] || (echo "${COMMON_SCRIPT_SHA} /tmp/common-setup.sh" | sha256sum -c -)) && \
@@ -36,4 +36,4 @@ RUN apt update -y && \
     rm -rf /usr/share/doc/ && \
     rm -rf /usr/share/man/ && \
     rm -rf /var/lib/apt/lists/* \
-    rm -rf /tmp/common-setup.sh
+    rm -f /tmp/common-setup.sh
