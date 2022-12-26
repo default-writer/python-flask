@@ -6,7 +6,7 @@
 ARG IMAGE_TYPE=bitnami/minideb:latest
 FROM $IMAGE_TYPE as base
 
-ARG BUILD_LIST="curl ca-certificates locales locales-all sudo git ssh"
+ARG BUILD_LIST="curl ca-certificates locales locales-all sudo git ssh build-essential"
 ARG PACKAGES_LIST="python3 python3-pip python3-dev python3-venv python3-behave"
 
 ENV LC_ALL en_US.UTF-8
