@@ -43,18 +43,18 @@ RUN apt update -y \
     # *********************************************************************
     # && apt -y install --no-install-recommends protobuf-compiler \
     #
-    && apt upgrade -y && \
+    && apt upgrade -y \
     # Clean up
     && apt autoremove -y \
     && apt clean -y \
     && rm -rf /var/lib/apt/lists/* \
-    apt autoclean -y && \
-    rm -rf /var/lib/{cache,log}/ && \
-    rm -rf /tmp/* /var/tmp/* && \
-    rm -rf /usr/share/doc/ && \
-    rm -rf /usr/share/man/ && \
-    rm -rf /var/lib/apt/lists/*\
-    rm -rf /tmp/*
+    && apt autoclean -y \
+    && rm -rf /var/lib/{cache,log}/ \
+    && rm -rf /tmp/* /var/tmp/* \
+    && rm -rf /usr/share/doc/ \
+    && rm -rf /usr/share/man/ \
+    && rm -rf /var/lib/apt/lists/* \
+    && rm -rf /tmp/*
 
 USER ${USERNAME}
 WORKDIR /workspace
