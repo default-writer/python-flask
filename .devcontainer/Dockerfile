@@ -20,7 +20,7 @@ ENV LANGUAGE en_US.UTF-8
 # This Dockerfile adds a non-root user with sudo access. Update the “remoteUser” property in
 # devcontainer.json to use it. More info: https://aka.ms/vscode-remote/containers/non-root-user.
 ARG USERNAME=automatic
-ARG USER_UID=1000
+ARG USER_UID=automatic
 ARG USER_GID=$USER_UID
 
 # Options for common setup script - SHA updated on release
@@ -60,7 +60,8 @@ RUN apt update -y \
     && rm -rf /var/lib/apt/lists/* \
     && rm -rf /tmp/*
 
-USER ${USERNAME}
+# USER ${USERNAME}
 WORKDIR /workspace
 
-COPY --chown=${USERNAME} . .
+FROM base as copy
+COPY --chown=${USER_UID}:USER_GID . .
