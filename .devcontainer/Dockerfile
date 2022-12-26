@@ -61,4 +61,5 @@ RUN apt update -y \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /workspace
+COPY . .
 RUN ./bin/init.sh
