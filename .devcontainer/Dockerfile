@@ -46,7 +46,7 @@ RUN apt update -y \
     # * Uncomment this section to use RUN to install other dependencies.  *
     # * See https://aka.ms/vscode-remote/containers/dockerfile-run        *
     # *********************************************************************
-    # && apt -y install --no-install-recommends protobuf-compiler \
+    # && apt install -y --no-install-recommends protobuf-compiler \
     #
     && apt upgrade -y \
     # Clean up
