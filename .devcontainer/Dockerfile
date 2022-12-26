@@ -57,8 +57,7 @@ RUN apt update -y \
     && rm -rf /tmp/* /var/tmp/* \
     && rm -rf /usr/share/doc/ \
     && rm -rf /usr/share/man/ \
-    && rm -rf /var/lib/apt/lists/* \
-    && rm -rf /tmp/*
+    && rm -rf /var/lib/apt/lists/*
 
 # USER ${USERNAME}
 WORKDIR /workspace
