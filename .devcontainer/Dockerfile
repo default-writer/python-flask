@@ -32,7 +32,7 @@ RUN apt update -y && \
     rm -rf /var/lib/apt/lists/*
     # rm -rf /tmp/common-setup.sh
 
-# USER ${USER}
+USER ${USER}
 WORKDIR /workspace
 
 COPY --chown=${USER}:${GROUP} . .
