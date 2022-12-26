@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 set -e
 
-uid=$(id -u)
-
 pwd=$(pwd)
 
 install="$1"
