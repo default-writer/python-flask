@@ -47,7 +47,7 @@ RUN apt update -y \
     # Clean up
     && apt autoremove -y \
     && apt clean -y \
-    && rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/* \
     apt autoclean -y && \
     rm -rf /var/lib/{cache,log}/ && \
     rm -rf /tmp/* /var/tmp/* && \
