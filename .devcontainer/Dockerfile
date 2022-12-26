@@ -23,7 +23,6 @@ ARG PACKAGES_ALREADY_INSTALLED="true"
 
 ARG IMAGE_TYPE=bitnami/minideb:latest
 ARG PACKAGES_LIST="python3 python3-pip python3-dev python3-venv python3-behave"
-
 FROM $IMAGE_TYPE as base
 
 ENV PACKAGES_ALREADY_INSTALLED=${PACKAGES_ALREADY_INSTALLED}
@@ -32,7 +31,7 @@ ENV PACKAGES_ALREADY_INSTALLED=${PACKAGES_ALREADY_INSTALLED}
 RUN apt update -y \
     && export DEBIAN_FRONTEND=noninteractive \
     && apt install -y --no-install-recommends curl ca-certificates ${PACKAGES_LIST} 2>&1 \
-    && curl -sSL  ${COMMON_SCRIPT_SOURCE} -o /tmp/common-setup.sh \
+    && curl -sSL "${COMMON_SCRIPT_SOURCE}" -o /tmp/common-setup.sh \
     && ([ "${COMMON_SCRIPT_SHA}" = "dev-mode" ] || (echo "${COMMON_SCRIPT_SHA} */tmp/common-setup.sh" | sha256sum -c -)) \
     && /bin/bash /tmp/common-setup.sh "${INSTALL_ZSH}" "${USERNAME}" "${USER_UID}" "${USER_GID}" "${UPGRADE_PACKAGES}" \
     && rm /tmp/common-setup.sh \
