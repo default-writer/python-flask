@@ -46,6 +46,4 @@ EOF
 
 esac
 
-. $HOME/.bashrc
-
 cd "${pwd}"

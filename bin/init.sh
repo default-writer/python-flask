@@ -25,12 +25,12 @@ if [ "$(which pyenv)" == "" ]; then
     "${pwd}/bin/venv.sh" --pyenv
 fi
 
+"${pwd}/bin/venv.sh" --python
+
+eval "$(source ${HOME}/.bashrc)"
+
 echo "Node version $(node --version)"
 echo "NPM version $(npm --version)"
 echo "Pyenv version $(pyenv --version)"
-
-"${pwd}/bin/venv.sh" --venv
-
-. "${pwd}/.venv/bin/activate"
 
 cd "${pwd}"
