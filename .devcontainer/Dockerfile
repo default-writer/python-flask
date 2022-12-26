@@ -4,10 +4,10 @@
 #-------------------------------------------------------------------------------------------------------------
 
 ARG IMAGE_TYPE=bitnami/minideb:latest
+FROM $IMAGE_TYPE as base
+
 ARG BUILD_LIST="curl ca-certificates locale-gen"
 ARG PACKAGES_LIST="python3 python3-pip python3-dev python3-venv python3-behave"
-
-FROM $IMAGE_TYPE as base
 
 #-------------------------------------------------------------------------------------------------------------
 # Copyright (c) Microsoft Corporation. All rights reserved.
