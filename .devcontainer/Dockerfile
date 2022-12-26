@@ -22,7 +22,7 @@ ARG PACKAGES_ALREADY_INSTALLED="true"
 #-------------------------------------------------------------------------------------------------------------
 
 ARG IMAGE_TYPE=bitnami/minideb:latest
-ARG PACKAGES_LIST="python3 python3-dev python3-venv"
+ARG PACKAGES_LIST="python3 python3-pip python3-dev python3-venv python3-behave"
 
 FROM $IMAGE_TYPE as base
 
@@ -43,7 +43,7 @@ RUN apt update -y \
     # *********************************************************************
     # && apt -y install --no-install-recommends protobuf-compiler \
     #
-    apt upgrade -y && \
+    && apt upgrade -y && \
     # Clean up
     && apt autoremove -y \
     && apt clean -y \
