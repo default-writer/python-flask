@@ -16,21 +16,11 @@ pwd=$(pwd)
 if [ "$(which nvm)" == "" ]; then
     "${pwd}/bin/install.sh" --nvm
     "${pwd}/bin/env.sh" --nvm
-    "${pwd}/bin/venv.sh" --nvm
 fi
 
 if [ "$(which pyenv)" == "" ]; then
     "${pwd}/bin/install.sh" --pyenv
     "${pwd}/bin/env.sh" --pyenv
-    "${pwd}/bin/venv.sh" --pyenv
 fi
-
-"${pwd}/bin/venv.sh" --python
-
-eval "$(source ${HOME}/.bashrc)"
-
-echo "Node version $(node --version)"
-echo "NPM version $(npm --version)"
-echo "Pyenv version $(pyenv --version)"
 
 cd "${pwd}"
