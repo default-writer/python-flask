@@ -17,47 +17,47 @@
 
     // Add the IDs of extensions you want installed when the container is created.
     "extensions": [
-        /* Git */
-        "mhutchie.git-graph",
-        "donjayamanne.githistory",
-        /* Markdown */
-        "yzhang.markdown-all-in-one",
-        /* Microsoft */
-        "ms-python.python",
-        "ms-python.vscode-pylance",
-        "ms-vscode.live-server",
-        "9crusher.tabinator",
-        "vadimcn.vscode-lldb",
-        "mhutchie.git-graph",
-        "donjayamanne.githistory",
-        "donjayamanne.python-environment-manager",
-        "SonarSource.sonarlint-vscode",
-        "codezombiech.gitignore",
-        "gabrielgrinberg.auto-run-command",
-        "Sycl.markdown-command-runner",
-        "andifin.testonsave",
-        "tenninebt.vscode-koverage",
-        "ryanluker.vscode-coverage-gutters",
-        "tomoki1207.pdf",
-        "yzane.markdown-pdf",
-        "NateAGeek.memory-viewer",
-        "bpruitt-goddard.mermaid-markdown-syntax-highlighting",
-        "bierner.markdown-mermaid",
-        "go2sh.cmake-integration-vscode",
-        "llvm-vs-code-extensions.vscode-clangd",
-        "VisualStudioExptTeam.vscodeintellicode",
-        "Gruntfuggly.todo-tree",
-        "arcanis.vscode-zipfs",
-        "GitHub.codespaces",
-        "BeardedBear.beardedicons"
+        // /* Git */
+        // "mhutchie.git-graph",
+        // "donjayamanne.githistory",
+        // /* Markdown */
+        // "yzhang.markdown-all-in-one",
+        // /* Microsoft */
+        // "ms-python.python",
+        // "ms-python.vscode-pylance",
+        // "ms-vscode.live-server",
+        // "9crusher.tabinator",
+        // "vadimcn.vscode-lldb",
+        // "mhutchie.git-graph",
+        // "donjayamanne.githistory",
+        // "donjayamanne.python-environment-manager",
+        // "SonarSource.sonarlint-vscode",
+        // "codezombiech.gitignore",
+        // "gabrielgrinberg.auto-run-command",
+        // "Sycl.markdown-command-runner",
+        // "andifin.testonsave",
+        // "tenninebt.vscode-koverage",
+        // "ryanluker.vscode-coverage-gutters",
+        // "tomoki1207.pdf",
+        // "yzane.markdown-pdf",
+        // "NateAGeek.memory-viewer",
+        // "bpruitt-goddard.mermaid-markdown-syntax-highlighting",
+        // "bierner.markdown-mermaid",
+        // "go2sh.cmake-integration-vscode",
+        // "llvm-vs-code-extensions.vscode-clangd",
+        // "VisualStudioExptTeam.vscodeintellicode",
+        // "Gruntfuggly.todo-tree",
+        // "arcanis.vscode-zipfs",
+        // "GitHub.codespaces",
+        // "BeardedBear.beardedicons"
     ],
 
     // Use 'forwardPorts' to make a list of ports inside the container available locally.
     // "forwardPorts": [],
 
     // Use 'postCreateCommand' to run commands after the container is created.
-    "postCreateCommand": "sudo /workspace/bin/container.sh"
+    // "postCreateCommand": "sudo /workspace/bin/container.sh"
 
     // Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
-    //"remoteUser": "vscode"
+    "remoteUser": "vscode"
 }
