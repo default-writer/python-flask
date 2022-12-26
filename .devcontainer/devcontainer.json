@@ -59,5 +59,5 @@
     // "postCreateCommand": "sudo /workspace/bin/container.sh"
 
     // Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
-    // "remoteUser": "vscode"
+    "remoteUser": "vscode"
 }
