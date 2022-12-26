@@ -64,4 +64,4 @@ RUN apt update -y \
 WORKDIR /workspace
 
 FROM base as copy
-COPY --chown=${USER_UID}:USER_GID . .
+COPY --chown=${USER_UID} . .
