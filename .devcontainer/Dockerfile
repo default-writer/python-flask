@@ -4,7 +4,7 @@
 #-------------------------------------------------------------------------------------------------------------
 
 ARG IMAGE_TYPE=bitnami/minideb:latest
-FROM $IMAGE_TYPE as base
+FROM $IMAGE_TYPE
 
 ARG BUILD_LIST="curl ca-certificates locales locales-all sudo git ssh libssl-dev libffi-dev build-essential"
 ARG PACKAGES_LIST="python3 python3-pip python3-dev python3-venv python3-behave"
@@ -61,7 +61,4 @@ RUN apt update -y \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /workspace
-
-FROM base as copy
-COPY . .
 RUN ./bin/init.sh

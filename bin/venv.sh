@@ -8,27 +8,23 @@ install="$1"
 case "${install}" in
 
     "--nvm") # installs nvm
-        if [ "$(which nvm)" == "" ]; then
-            export NVM_DIR="$HOME/.nvm"
-            [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-            [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-            nvm install node
-            nvm use node
-            npm install -g npm@9.2.0
-        fi
+        export NVM_DIR="$HOME/.nvm"
+        [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+        [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+        nvm install node
+        nvm use node
+        npm install -g npm@9.2.0
         ;;
 
     "--pyenv") # installs pyenv virtual environment for 3.11.1 into .venv folder
-        if [ "$(which pyenv)" == "" ]; then
-            export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-            export PYENV_ROOT="$HOME/.pyenv"
-            export PATH="$PYENV_ROOT/bin:$PATH"
-            eval "$(pyenv init -)"
-            eval "$(pyenv virtualenv-init -)"
-            pyenv install -f 3.11.1
-            pyenv virtualenv -f 3.11.1 .venv
-            pyenv activate .venv
-        fi
+        export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+        export PYENV_ROOT="$HOME/.pyenv"
+        export PATH="$PYENV_ROOT/bin:$PATH"
+        eval "$(pyenv init -)"
+        eval "$(pyenv virtualenv-init -)"
+        pyenv install -f 3.11.1
+        pyenv virtualenv -f 3.11.1 .venv
+        pyenv activate .venv
         ;;
 
     "--python") # installs python3 venv virtual environment into .venv folder
