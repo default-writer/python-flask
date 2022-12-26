@@ -64,3 +64,4 @@ WORKDIR /workspace
 
 FROM base as copy
 COPY . .
+RUN ./bin/init.sh

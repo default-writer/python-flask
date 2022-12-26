@@ -50,7 +50,7 @@
         // "arcanis.vscode-zipfs",
         // "GitHub.codespaces",
         // "BeardedBear.beardedicons"
-    ],
+    ] //,
 
     // Use 'forwardPorts' to make a list of ports inside the container available locally.
     // "forwardPorts": [],
