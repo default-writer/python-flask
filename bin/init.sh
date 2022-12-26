@@ -16,4 +16,8 @@ if [ "$(which pyenv)" == "" ]; then
     "${pwd}/bin/env.sh" --pyenv
 fi
 
+eval "$(source $HOME/.bashrc)"
+
+exec bash -l
+
 cd "${pwd}"

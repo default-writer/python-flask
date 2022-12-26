@@ -12,7 +12,7 @@ case "${install}" in
         ;;
 
     "--pyenv") # downloads and installs pyenv
-        rm -rf "${HOME}/.pyenv"
+        rm -rf "$HOME/.pyenv"
         curl --silent https://pyenv.run | bash
         ;;
 
