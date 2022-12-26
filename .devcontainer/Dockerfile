@@ -59,4 +59,4 @@ RUN apt update -y \
 USER ${USERNAME}
 WORKDIR /workspace
 
-COPY --chown ${USERNAME} . .
+COPY --chown=${USERNAME} . .
