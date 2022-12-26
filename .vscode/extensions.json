@@ -1,12 +1,12 @@
 {
     "recommendations": [
-        "codezombiech.gitignore",
-        "donjayamanne.githistory",
-        "yzhang.markdown-all-in-one",
-        "ms-python.vscode-pylance",
-        "ms-python.python",
-        "sonarsource.sonarlint-vscode",
-        "9crusher.tabinator",
+		"codezombiech.gitignore",
+		"donjayamanne.githistory",
+		"yzhang.markdown-all-in-one",
+		"ms-python.vscode-pylance",
+		"ms-python.python",
+		"sonarsource.sonarlint-vscode",
+		"9crusher.tabinator",
         /* Git */
 		"mhutchie.git-graph",
 		"donjayamanne.githistory",
@@ -39,6 +39,9 @@
 		"Gruntfuggly.todo-tree",
 		"arcanis.vscode-zipfs",
 		"GitHub.codespaces",
-		"BeardedBear.beardedicons"
-    ]
+		"BeardedBear.beardedicons",
+		"ms-vscode-remote.remote-ssh",
+		"ms-vscode-remote.remote-ssh-edit",
+		"ms-vscode-remote.vscode-remote-extensionpack"
+	]
 }
