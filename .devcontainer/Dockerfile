@@ -59,7 +59,7 @@ RUN apt update -y \
     && rm -rf /usr/share/doc/ \
     && rm -rf /usr/share/man/ \
     && rm -rf /var/lib/apt/lists/*
-
+USER $USER
 WORKDIR /workspace
-COPY . .
+COPY --chown=${USERNAME} . .
 RUN ./bin/init.sh
