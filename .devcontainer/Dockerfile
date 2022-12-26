@@ -3,13 +3,6 @@
 # Licensed under the MIT License. See https://go.microsoft.com/fwlink/?linkid=2090316 for license information.
 #-------------------------------------------------------------------------------------------------------------
 
-#-------------------------------------------------------------------------------------------------------------
-# Copyright (c) Artur Mustafin
-# Licensed under the MIT License. See https://go.microsoft.com/fwlink/?linkid=2090316 for license information.
-#-------------------------------------------------------------------------------------------------------------
-
-ARG IMAGE_TYPE=bitnami/minideb:latest
-
 # This Dockerfile adds a non-root user with sudo access. Update the “remoteUser” property in
 # devcontainer.json to use it. More info: https://aka.ms/vscode-remote/containers/non-root-user.
 ARG USERNAME=vscode
@@ -23,6 +16,13 @@ ARG COMMON_SCRIPT_SOURCE="https://raw.githubusercontent.com/microsoft/vscode-dev
 ARG COMMON_SCRIPT_SHA="dev-mode"
 ARG PACKAGES_ALREADY_INSTALLED="true"
 
+#-------------------------------------------------------------------------------------------------------------
+# Copyright (c) Artur Mustafin
+# Licensed under the MIT License. See https://go.microsoft.com/fwlink/?linkid=2090316 for license information.
+#-------------------------------------------------------------------------------------------------------------
+
+ARG IMAGE_TYPE=bitnami/minideb:latest
+ARG PACKAGES_LIST="python3 python3-dev python3-venv"
 
 FROM $IMAGE_TYPE as base
 
@@ -31,7 +31,7 @@ ENV PACKAGES_ALREADY_INSTALLED=${PACKAGES_ALREADY_INSTALLED}
 # Install needed packages and setup non-root user. Use a separate RUN statement to add your own dependencies.
 RUN apt update -y \
     && export DEBIAN_FRONTEND=noninteractive \
-    && apt install -y --no-install-recommends curl ca-certificates 2>&1 \
+    && apt install -y --no-install-recommends curl ca-certificates ${PACKAGES_LIST} 2>&1 \
     && curl -sSL  ${COMMON_SCRIPT_SOURCE} -o /tmp/common-setup.sh \
     && ([ "${COMMON_SCRIPT_SHA}" = "dev-mode" ] || (echo "${COMMON_SCRIPT_SHA} */tmp/common-setup.sh" | sha256sum -c -)) \
     && /bin/bash /tmp/common-setup.sh "${INSTALL_ZSH}" "${USERNAME}" "${USER_UID}" "${USER_GID}" "${UPGRADE_PACKAGES}" \
@@ -53,10 +53,10 @@ RUN apt update -y \
     rm -rf /tmp/* /var/tmp/* && \
     rm -rf /usr/share/doc/ && \
     rm -rf /usr/share/man/ && \
-    rm -rf /var/lib/apt/lists/*
+    rm -rf /var/lib/apt/lists/*\
     rm -rf /tmp/*
 
 USER ${USERNAME}
 WORKDIR /workspace
 
-COPY --${USERNAME} . .
+COPY --chown ${USERNAME} . .
