@@ -59,10 +59,9 @@ RUN apt update -y \
     && rm -rf /usr/share/doc/ \
     && rm -rf /usr/share/man/ \
     && rm -rf /var/lib/apt/lists/*
-USER $USER
-WORKDIR /workspace
 
 FROM base as init
-USER $USER
+WORKDIR /workspace
+USER ${USERNAME}
 COPY --chown=${USERNAME} . .
 RUN ./bin/init.sh
