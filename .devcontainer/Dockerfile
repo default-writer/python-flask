@@ -3,8 +3,8 @@
 # Licensed under the MIT License. See https://go.microsoft.com/fwlink/?linkid=2090316 for license information.
 #-------------------------------------------------------------------------------------------------------------
 
-ARG IMAGE_TYPE=bitnami/minideb:latest as base
-FROM $IMAGE_TYPE
+ARG IMAGE_TYPE=bitnami/minideb:latest
+FROM $IMAGE_TYPE as base
 
 ARG BUILD_LIST="curl ca-certificates locales locales-all sudo git ssh libssl-dev libffi-dev build-essential"
 ARG PACKAGES_LIST="python3 python3-pip python3-dev python3-venv python3-behave"
