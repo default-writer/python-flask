@@ -2,9 +2,8 @@
 # Copyright (c) Artur Mustafin
 # Licensed under the MIT License. See https://go.microsoft.com/fwlink/?linkid=2090316 for license information.
 #-------------------------------------------------------------------------------------------------------------
-
 ARG IMAGE_TYPE=bitnami/minideb:latest
-FROM $IMAGE_TYPE
+FROM $IMAGE_TYPE as base
 
 ARG BUILD_LIST="curl ca-certificates locales locales-all sudo git ssh libssl-dev libffi-dev build-essential"
 ARG PACKAGES_LIST="python3 python3-pip python3-dev python3-venv python3-behave"
@@ -12,16 +11,14 @@ ARG PACKAGES_LIST="python3 python3-pip python3-dev python3-venv python3-behave"
 ENV LC_ALL en_US.UTF-8
 ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US.UTF-8
-
 #-------------------------------------------------------------------------------------------------------------
 # Copyright (c) Microsoft Corporation. All rights reserved.
 # Licensed under the MIT License. See https://go.microsoft.com/fwlink/?linkid=2090316 for license information.
 #-------------------------------------------------------------------------------------------------------------
-
 # This Dockerfile adds a non-root user with sudo access. Update the “remoteUser” property in
 # devcontainer.json to use it. More info: https://aka.ms/vscode-remote/containers/non-root-user.
-ARG USERNAME=vscode
-ARG USER_UID=1000
+ARG USERNAME=automatic
+ARG USER_UID=automatic
 ARG USER_GID=$USER_UID
 
 # Options for common setup script - SHA updated on release
@@ -60,8 +57,8 @@ RUN apt update -y \
     && rm -rf /usr/share/man/ \
     && rm -rf /var/lib/apt/lists/*
 
-USER ${USERNAME}
 WORKDIR /workspace
 
-COPY --chown=${USERNAME} . .
-RUN ./bin/init.sh
+FROM base as copy
+
+COPY . .
