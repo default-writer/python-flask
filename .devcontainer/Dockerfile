@@ -31,7 +31,7 @@ ARG COMMON_SCRIPT_SOURCE="https://raw.githubusercontent.com/microsoft/vscode-dev
 ARG COMMON_SCRIPT_SHA="dev-mode"
 ARG PACKAGES_ALREADY_INSTALLED="true"
 
-ENV PACKAGES_ALREADY_INSTALLED=${PACKAGES_ALREADY_INSTALLED}
+# ENV PACKAGES_ALREADY_INSTALLED=${PACKAGES_ALREADY_INSTALLED}
 
 
 # Install needed packages and setup non-root user. Use a separate RUN statement to add your own dependencies.
