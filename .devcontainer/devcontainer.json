@@ -63,7 +63,8 @@
 		"ms-vscode-remote.remote-ssh",
 		"ms-vscode-remote.remote-ssh-edit",
 		"ms-vscode-remote.vscode-remote-extensionpack",
-		"huizhou.githd"
+		"huizhou.githd",
+		"pomber.git-file-history"
 	] //,
 
     // Use 'forwardPorts' to make a list of ports inside the container available locally.
