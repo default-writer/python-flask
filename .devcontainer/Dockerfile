@@ -31,6 +31,8 @@ ARG COMMON_SCRIPT_SOURCE="https://raw.githubusercontent.com/microsoft/vscode-dev
 ARG COMMON_SCRIPT_SHA="dev-mode"
 ARG PACKAGES_ALREADY_INSTALLED="true"
 
+ENV PACKAGES_ALREADY_INSTALLED=${PACKAGES_ALREADY_INSTALLED}
+
 # Install needed packages and setup non-root user. Use a separate RUN statement to add your own dependencies.
 RUN apt update -y \
     && export DEBIAN_FRONTEND=noninteractive \
@@ -60,5 +62,6 @@ RUN apt update -y \
 
 USER ${USERNAME}
 WORKDIR /workspace
+
 COPY --chown=${USERNAME} . .
 RUN ./bin/init.sh
