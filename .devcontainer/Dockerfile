@@ -63,5 +63,6 @@ USER $USER
 WORKDIR /workspace
 
 FROM base as init
+USER $USER
 COPY --chown=${USERNAME} . .
 RUN ./bin/init.sh
