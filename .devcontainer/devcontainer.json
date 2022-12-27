@@ -65,7 +65,7 @@
 		// "ms-vscode-remote.vscode-remote-extensionpack",
 		// "huizhou.githd",
 		// "pomber.git-file-history"
-	],
+	]
 
     // Use 'forwardPorts' to make a list of ports inside the container available locally.
     // "forwardPorts": [],
@@ -74,5 +74,5 @@
     // "postCreateCommand": "sudo /workspace/bin/container.sh"
 
     // Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
-    "remoteUser": "vscode"
+    // "remoteUser": "vscode"
 }
