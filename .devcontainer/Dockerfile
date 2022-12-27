@@ -3,7 +3,7 @@
 # Licensed under the MIT License. See https://go.microsoft.com/fwlink/?linkid=2090316 for license information.
 #-------------------------------------------------------------------------------------------------------------
 
-ARG IMAGE_TYPE=bitnami/minideb:latest
+ARG IMAGE_TYPE=bitnami/minideb:latest as base
 FROM $IMAGE_TYPE
 
 ARG BUILD_LIST="curl ca-certificates locales locales-all sudo git ssh libssl-dev libffi-dev build-essential"
@@ -61,5 +61,7 @@ RUN apt update -y \
     && rm -rf /var/lib/apt/lists/*
 USER $USER
 WORKDIR /workspace
+
+FROM base as init
 COPY --chown=${USERNAME} . .
 RUN ./bin/init.sh
