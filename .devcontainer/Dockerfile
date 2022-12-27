@@ -4,7 +4,7 @@
 #-------------------------------------------------------------------------------------------------------------
 
 ARG IMAGE_TYPE=bitnami/minideb:latest
-FROM $IMAGE_TYPE as base
+FROM $IMAGE_TYPE
 
 ARG BUILD_LIST="curl ca-certificates locales locales-all sudo git ssh libssl-dev libffi-dev build-essential"
 ARG PACKAGES_LIST="python3 python3-pip python3-dev python3-venv python3-behave"
@@ -33,6 +33,7 @@ ARG PACKAGES_ALREADY_INSTALLED="true"
 
 ENV PACKAGES_ALREADY_INSTALLED=${PACKAGES_ALREADY_INSTALLED}
 
+
 # Install needed packages and setup non-root user. Use a separate RUN statement to add your own dependencies.
 RUN apt update -y \
     && export DEBIAN_FRONTEND=noninteractive \
@@ -60,8 +61,7 @@ RUN apt update -y \
     && rm -rf /usr/share/man/ \
     && rm -rf /var/lib/apt/lists/*
 
-FROM base as init
-WORKDIR /workspace
 USER ${USERNAME}
+WORKDIR /workspace
 COPY --chown=${USERNAME} . .
 RUN ./bin/init.sh
