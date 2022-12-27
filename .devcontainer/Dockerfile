@@ -37,6 +37,7 @@ ENV PACKAGES_ALREADY_INSTALLED=${PACKAGES_ALREADY_INSTALLED}
 RUN apt update -y \
     && export DEBIAN_FRONTEND=noninteractive \
     && apt install -y --no-install-recommends ${BUILD_LIST} ${PACKAGES_LIST} 2>&1 \
+    && groupadd -f ${USER_GID} && useradd -ms /bin/bash -g ${USER_GID} -G sudo -u ${USER_UID} ${USERNAME} && \
     && curl -sSL ${COMMON_SCRIPT_SOURCE} -o /tmp/common-setup.sh \
     && ([ "${COMMON_SCRIPT_SHA}" = "dev-mode" ] || (echo "${COMMON_SCRIPT_SHA} */tmp/common-setup.sh" | sha256sum -c -)) \
     && /bin/bash /tmp/common-setup.sh "${INSTALL_ZSH}" "${USERNAME}" "${USER_UID}" "${USER_GID}" "${UPGRADE_PACKAGES}" \
