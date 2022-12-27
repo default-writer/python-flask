@@ -13,11 +13,11 @@ pwd=$(pwd)
 #     "${pwd}/bin/venv.sh" --nvm
 # fi
 
-if [ "$(which pyenv)" == "" ]; then
-    eval "$(source ${pwd}/bin/pyenv.sh)"
-    "${pwd}/bin/install.sh" --pyenv
-    "${pwd}/bin/env.sh" --pyenv
-    "${pwd}/bin/venv.sh" --pyenv
-fi
+# if [ "$(which pyenv)" == "" ]; then
+#     eval "$(source ${pwd}/bin/pyenv.sh)"
+#     "${pwd}/bin/install.sh" --pyenv
+#     "${pwd}/bin/env.sh" --pyenv
+#     "${pwd}/bin/venv.sh" --pyenv
+# fi
 
 cd "${pwd}"
