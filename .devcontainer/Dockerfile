@@ -60,4 +60,5 @@ RUN apt update -y \
 
 USER ${USERNAME}
 WORKDIR /workspace
+COPY --chown=${USERNAME} . .
 RUN ./bin/init.sh
