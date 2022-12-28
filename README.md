@@ -42,7 +42,7 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 General devlopment
 
 ```dockerfile
-RUN apt update -y \
+RUN apt -y update \
      && export DEBIAN_FRONTEND=noninteractive \
      && apt -y install --no-install-recommends tar curl zip unzip
 ```
@@ -59,10 +59,10 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 ```dockerfile
 RUN wget https://packages.microsoft.com/config/ubuntu/22.04/packages-microsoft-prod.deb -O /tmp/packages-microsoft-prod.deb \
     && dpkg -i /tmp/packages-microsoft-prod.deb \
-    && apt update -y \
-    && apt install -y apt-transport-https \
-    && apt install -y dotnet-sdk-5.0 \
-    && apt install -y dotnet-runtime-5.0
+    && apt -y update \
+    && apt -y install apt-transport-https \
+    && apt -y install dotnet-sdk-5.0 \
+    && apt -y install dotnet-runtime-5.0
 ```
 
 Node.js
@@ -91,7 +91,7 @@ Bazel
 RUN apt install curl gnupg \
     && curl https://bazel.build/bazel-release.pub.gpg | apt-key add -; \
     echo "deb [arch=amd64] https://storage.googleapis.com/bazel-apt stable jdk1.8" | tee /etc/apt/sources.list.d/bazel.list \
-    && apt update -y \
+    && apt -y update \
     && apt -y install bazel \
     && wget -q "https://github.com/bazelbuild/buildtools/releases/download/3.4.0/buildifier" -P /usr/local/bin &&  chmod +x /usr/local/bin/buildifier \
     && wget -q "https://github.com/bazelbuild/buildtools/releases/download/3.4.0/buildozer" -P /usr/local/bin && chmod +x /usr/local/bin/buildozer \
@@ -109,7 +109,7 @@ Unix ODBC driver for MSSQL Server 2017
 ```dockerfile
 RUN curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -; \
     curl https://packages.microsoft.com/config/ubuntu/19.10/prod.list > /etc/apt/sources.list.d/mssql-release.list; \
-    apt update -y \
+    apt -y update \
     && ACCEPT_EULA=Y apt -y install msodbcsql17 mssql-tools unixodbc-dev
 ```
 
@@ -129,9 +129,9 @@ RUN curl -L "https://github.com/docker/compose/releases/download/1.26.2/docker-c
 Python 3
 
 ```dockerfile
-RUN apt update -y \
+RUN apt -y update \
     && export DEBIAN_FRONTEND=noninteractive \
-    && apt install -y python3 python3-dev python3-pip python3-venv python3-behave pipenv
+    && apt -y install python3 python3-dev python3-pip python3-venv python3-behave pipenv
 
 RUN ln -s /usr/local/bin/python3 /usr/bin/python & \
     ln -s /usr/local/bin/pip3 /usr/bin/pip
