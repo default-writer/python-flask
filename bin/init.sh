@@ -20,4 +20,5 @@ if [ "$(which pyenv)" == "" ]; then
     "${pwd}/bin/venv.sh" --pyenv
 fi
 
-cd "${pwd}"trampoline workss?
+cd "${pwd}"
+
