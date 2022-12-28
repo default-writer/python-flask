@@ -38,4 +38,4 @@ COPY --chown=${USER_NAME}:${USER_GROUP} . .
 FROM base as init
 WORKDIR /workspace
 
-RUN ./bin/init.sh
+# RUN ./bin/init.sh
