@@ -5,8 +5,6 @@ ARG USER_GROUP=vscode
 ARG USER_ID=1000
 ARG USER_GID=$USER_ID
 
-ARG pwd=/workspace
-
 # Options for common setup script - SHA generated on release
 ARG INSTALL_ZSH="true"
 ARG UPGRADE_PACKAGES="true"
@@ -38,12 +36,11 @@ RUN apt -y update \
     rm -rf /var/lib/apt/lists/* /tmp/common-setup.sh
 
 USER ${USER_NAME}
-WORKDIR ${pwd}
-ENV pwd=${pwd}
+WORKDIR /workspace
 COPY --chown=${USER_NAME}:${USER_GROUP} . .
 
 FROM base as init
 RUN <<EOT
 #!/usr/bin/env bash
-${pwd}/bin/init.sh
+/workspace/bin/init.sh
 EOT
