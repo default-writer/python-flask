@@ -2,6 +2,14 @@
 
 Python template project for VSCode (batteries included)
 
+
+## initialization
+
+```bash
+git config --global user.name .
+git config --global user.email .
+```
+
 ## environment variables
 
 run script `./bin/env.sh` as user
