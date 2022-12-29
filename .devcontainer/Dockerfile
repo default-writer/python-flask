@@ -46,13 +46,14 @@ WORKDIR /workspace
 
 ARG pwd=/workspace
 
+RUN ${pwd}/bin/git.sh --git && \
+    ${pwd}/bin/git.sh --hooks
+
 RUN ${pwd}/bin/install.sh --nvm && \
     ${pwd}/bin/env.sh --nvm && \
-    ${pwd}/bin/venv.sh --nvm && \
+    ${pwd}/bin/venv.sh --nvm
 
 RUN source ${pwd}/bin/pyenv.sh && \
     ${pwd}/bin/install.sh --pyenv && \
     ${pwd}/bin/env.sh --pyenv && \
     ${pwd}/bin/venv.sh --pyenv
-
-RUN ./bin/init.sh
