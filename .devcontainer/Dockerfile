@@ -43,4 +43,5 @@ COPY --chown=${USER_NAME}:${USER_GROUP} . .
 FROM base as init
 WORKDIR /workspace
 
+RUN echo Hello, world!
 # RUN ./bin/init.sh
