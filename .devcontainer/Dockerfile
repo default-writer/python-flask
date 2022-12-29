@@ -1,3 +1,4 @@
+# syntax=docker/dockerfile:1
 FROM ubuntu:22.04 as base
 
 ARG USER_NAME=vscode
@@ -40,7 +41,4 @@ WORKDIR /workspace
 COPY --chown=${USER_NAME}:${USER_GROUP} . .
 
 FROM base as init
-RUN <<EOT
-#!/usr/bin/env bash
-exec /workspace/bin/init.sh
-EOT
+RUN bash /workspace/bin/init.sh
