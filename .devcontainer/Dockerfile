@@ -42,5 +42,5 @@ COPY --chown=${USER_NAME}:${USER_GROUP} . .
 FROM base as init
 RUN <<EOT
 #!/usr/bin/env bash
-/workspace/bin/init.sh
+exec /workspace/bin/init.sh
 EOT
